@@ -54,7 +54,7 @@
                         <h3 class="title mb-3">{{ $comic['title'] }}</h3>
 
                         <p class="price-detail-wrap">
-                            <span class="price h3 text-warning">
+                            <span class="price h3 text-success">
                                 <span class="currency">$</span><span class="num">{{ $comic['price'] }}</span>
                             </span>
                         </p> <!-- price-detail-wrap .// -->
@@ -77,8 +77,14 @@
                             <dd>{{ $comic['sale_date'] }}</dd>
                         </dl> <!-- item-property-hor .// -->
                         <hr>
-                        <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
-                        <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+                        <a href="{{ route('comics.edit', $comic) }}" class="btn btn-outline-primary mb-2"> <i class="fas fa-edit"></i> Edit </a>
+                        <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">
+                            <i class="fa-solid fa-trash-can"></i> DELETE 
+                            </button>
+                        </form>
                     </article> <!-- card-body.// -->
                 </aside> <!-- col.// -->
             </div> <!-- row.// -->

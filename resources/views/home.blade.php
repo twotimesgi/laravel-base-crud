@@ -12,8 +12,8 @@
     <div class="container pt-4">
         <div class="row">
         @foreach ($data as $comic)
-            <div class="col-md-3">
-                <div class="card mb-4 box-shadow">
+            <div class="col-md-3 py-4">
+                <div class="card h-100 box-shadow">
                     <img class="card-img-top" src="{{ $comic['thumb'] }}">
                     <div class="card-body">
                         <h3 class="card-text">{{ $comic['title'] }}</h3>
