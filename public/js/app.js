@@ -19380,6 +19380,21 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var confirmBtns = document.querySelectorAll(".confirm-button");
+
+if (confirmBtns) {
+  var toggleModal = function toggleModal() {
+    modal.classList.toggle('show');
+  };
+
+  var modal = document.querySelector(".my-overlay");
+  Array.from(confirmBtns).forEach(function (button) {
+    button.addEventListener("click", toggleModal);
+  });
+  var closeBtn = document.getElementById("close-modal");
+  closeBtn.addEventListener("click", toggleModal);
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

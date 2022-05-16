@@ -77,21 +77,31 @@
                             <dd>{{ $comic['sale_date'] }}</dd>
                         </dl> <!-- item-property-hor .// -->
                         <hr>
-                        <a href="{{ route('comics.edit', $comic) }}" class="btn btn-outline-primary mb-2"> <i class="fas fa-edit"></i> Edit </a>
-                        <form action="{{ route('comics.destroy', $comic) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger">
-                            <i class="fa-solid fa-trash-can"></i> DELETE 
-                            </button>
-                        </form>
+                        <a href="{{ route('comics.edit', $comic) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i> Edit </a>
+                        <button class="btn btn-danger confirm-button">
+                            <i class="fa-solid fa-trash-can"></i> DELETE
+                        </button>
                     </article> <!-- card-body.// -->
                 </aside> <!-- col.// -->
             </div> <!-- row.// -->
         </div> <!-- card.// -->
 
-
+        <div class="my-overlay">
+            <div class="my-modal">
+                <p>Are you sure you want to delete {{ $comic['title'] }}?</p>
+                <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button class="btn btn-danger">
+                    CONFIRM
+                </button>
+                </form>
+                <button id="close-modal" class="btn btn-outline-primary">CANCEL</button>
+            </div>
+        </div>
+        
     </div>
 </body>
+<script src="{{ asset('/js/app.js') }}"></script>
 
 </html>
